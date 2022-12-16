@@ -1,13 +1,6 @@
-using UnityEngine;
-
-public class PlayerData : MonoBehaviour
+public static class PlayerData 
 {
-    public static PlayerData Instance;
-    private void Awake() => Instance = this;
-
-
-
-    public static float maxHealth = 10.00f;
+    public static float maxHealth = 30.00f;
 
     public static float Health { get => health; set { health = value; UIManager.Instance.SetPlayerHealthBar(); } }
     private static float health;

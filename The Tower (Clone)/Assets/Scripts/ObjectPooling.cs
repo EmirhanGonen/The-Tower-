@@ -31,7 +31,6 @@ public class ObjectPooling : MonoBehaviour
             }
         }
     }
-
     public T GetPooledObject<T>() where T : MonoBehaviour, new()
     {
         for (var i = 0; i < pools.Count; i++)

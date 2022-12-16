@@ -29,8 +29,12 @@ public class UIManager : MonoBehaviour
         DOTween.To(() => fillHealth.fillAmount, X => fillHealth.fillAmount = X, PlayerData.Health / PlayerData.maxHealth, .30f)
             .OnComplete(() =>
             {
-                DOTween.To(() => fillHealthBackGround.fillAmount, X => fillHealthBackGround.fillAmount = X, fillHealth.fillAmount, .30f);
+                DOTween.To(() => fillHealthBackGround.fillAmount, y => fillHealthBackGround.fillAmount = y, fillHealth.fillAmount, .30f);
             });
 
+    }
+    public void Upgrade(UpgradeEnum upgradeEnum)
+    {
+        upgradeEnum.Upgrade();
     }
 }

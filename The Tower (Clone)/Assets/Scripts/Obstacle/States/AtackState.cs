@@ -16,7 +16,6 @@ public class AtackState : State, IGiveDamagable
 
     public void Atack()
     {
-
         GiveDamage(obstacleData.target.GetComponentInChildren<IDamagable<float>>());
         if (!IsInvoking(nameof(Atack))) Invoke(nameof(Atack), obstacleData.atackSpeed);
     }

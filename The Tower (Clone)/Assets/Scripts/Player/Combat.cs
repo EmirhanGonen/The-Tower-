@@ -5,7 +5,7 @@ public class Combat : MonoBehaviour
     public static Combat Instance { get; private set; }
 
     [SerializeField] private Bullet bullet;
-
+    float endShoot;
     private void Awake()
     {
         Instance = this;
@@ -14,6 +14,7 @@ public class Combat : MonoBehaviour
     {
         PlayerData.Initalize();
     }
+
     private void Shoot()
     {
         if (ListHolder.Instance.DamagablesCount <= 0) { CheckShoot(); return; };

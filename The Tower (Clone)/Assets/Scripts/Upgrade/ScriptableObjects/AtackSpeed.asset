@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b4dbb47ef757740b805b1d947abdbf, type: 3}
-  m_Name: Tank
+  m_Script: {fileID: 11500000, guid: 582171487ec81524a9ccbe503fc82cb8, type: 3}
+  m_Name: AtackSpeed
   m_EditorClassIdentifier: 
-  health: 150
-  speed: 1.5
-  damage: 3
-  atackSpeed: 1
-  minLoot: 2
-  maxLoot: 6
+  initializeIncreaseRatio: 20
+  atackType: 1
