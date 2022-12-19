@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerDefense : MonoBehaviour, IDamagable<float>
 {
-
     public void TakeDamage(float amount)
     {
         PlayerData.Health -= amount;

@@ -1,6 +1,7 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Upgrade/Atack")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Upgrade/Atack"), InlineEditor]
 public class AtackEnum : UpgradeEnum
 {
     private enum AtackType
@@ -9,7 +10,7 @@ public class AtackEnum : UpgradeEnum
         atackSpeed
     }
 
-    [SerializeField] private AtackType atackType;
+    [EnumToggleButtons, SerializeField] private AtackType atackType;
 
     protected override void UpgradeLogic()
     {

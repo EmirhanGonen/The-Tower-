@@ -16,5 +16,4 @@ MonoBehaviour:
   speed: 3
   damage: 1
   atackSpeed: 0.7
-  minLoot: 1
-  maxLoot: 3
+  lootRange: {x: 0, y: 5}

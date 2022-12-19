@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Obstacle")]
@@ -9,8 +10,8 @@ public class ObstacleSO : ScriptableObject
     public float damage;
     public float atackSpeed;
 
-    public float minLoot, maxLoot;
-    public float Loot => Random.Range(minLoot, maxLoot);
+    [MinMaxSlider(0, 100)] public Vector2Int lootRange;
+    public float Loot => Random.Range(lootRange.x, lootRange.y);
 
     private Transform target;
 
@@ -27,5 +28,6 @@ public class ObstacleSO : ScriptableObject
         target = GameObject.FindGameObjectWithTag("Player").transform;
         obstacle.target = target;
     }
+
 
 }

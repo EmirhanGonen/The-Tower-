@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+
 public class Obstacle : MonoBehaviour, IDamagable<float>
 {
     [SerializeField] private ObstacleSO obstacleSO;
@@ -8,6 +10,13 @@ public class Obstacle : MonoBehaviour, IDamagable<float>
 
     private ObstacleData data;
 
+
+    public delegate void OnDead();
+
+    public OnDead onDead;
+    
+
+   
     private void Awake()
     {
         data = new();
@@ -30,6 +39,7 @@ public class Obstacle : MonoBehaviour, IDamagable<float>
     }
     public void Die()
     {
+        onDead?.Invoke();
         ListHolder.Instance.damagables.Remove(this);
         PlayerData.Coin += data.loot;
         AnimateText(ObjectPooling.Instance.GetPooledObject<AnimatedCanvas>());

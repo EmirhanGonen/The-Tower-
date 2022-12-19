@@ -8,7 +8,7 @@ public class MoveState : State
     private Transform ParentPosition => transform.parent;
     public override State RunCurrentState(ObstacleData data)
     {
-        if (CanAttack(data)) { Debug.Log("Atack Stateye Geçildi" + transform.parent.name);  data.speed = 0f; return atackState; }
+        if (CanAttack(data)) {data.speed = 0f; return atackState; }
 
         ParentPosition.SetPositionAndRotation(Vector3.MoveTowards(ParentPosition.position, data.target.position, data.speed * Time.deltaTime),
         Quaternion.Euler(LookAtPlayer(data)));
