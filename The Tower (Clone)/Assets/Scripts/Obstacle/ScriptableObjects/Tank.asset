@@ -16,4 +16,4 @@ MonoBehaviour:
   speed: 1.5
   damage: 3
   atackSpeed: 1
-  lootRange: {x: 0, y: 10}
+  lootRange: {x: 3, y: 10}

@@ -19,9 +19,8 @@ public class AtackState : State, IGiveDamagable
         GiveDamage(obstacleData.target.GetComponentInChildren<IDamagable<float>>());
         if (!IsInvoking(nameof(Atack))) Invoke(nameof(Atack), obstacleData.atackSpeed);
     }
-
     public void GiveDamage<T>(T obstacle) where T : IDamagable<float>
     {
-        obstacle.TakeDamage(obstacleData.damage);
+        if (transform.parent.gameObject.activeInHierarchy) obstacle.TakeDamage(obstacleData.damage);
     }
 }

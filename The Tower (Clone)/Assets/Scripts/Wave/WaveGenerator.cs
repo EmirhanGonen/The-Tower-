@@ -44,7 +44,6 @@ public class WaveGenerator : MonoBehaviour
 
             for (int j = 0; j < spawnCount; j++)
             {
-                // Obstacle obstacle = Instantiate(currentData.objects, GetRandomSpawnPosition(), Quaternion.identity);
                 Obstacle obstacle = ObjectPooling.Instance.GetPooledObject(currentData.objects);
 
                 obstacle.transform.SetPositionAndRotation(GetRandomSpawnPosition(), Quaternion.identity);

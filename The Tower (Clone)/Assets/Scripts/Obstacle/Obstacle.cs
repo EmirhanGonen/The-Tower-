@@ -14,17 +14,28 @@ public class Obstacle : MonoBehaviour, IDamagable<float>
     public delegate void OnDead();
 
     public OnDead onDead;
-    
 
-   
-    private void Awake()
+    public delegate void OnSpawn();
+
+    public OnSpawn onSpawn;
+
+
+    private bool isLive;
+
+    private void OnEnable()
     {
+        isLive = true;
         data = new();
+
         obstacleSO.SetVariables(data);
+        Debug.Log(currentState.name);
     }
+    private void OnDisable() => isLive = false;
 
     private void Update()
     {
+        if (!isLive) return;
+
         State nextState = currentState.RunCurrentState(data);
 
         if (nextState) SwitchToTheNextState(nextState);
@@ -40,13 +51,18 @@ public class Obstacle : MonoBehaviour, IDamagable<float>
     public void Die()
     {
         onDead?.Invoke();
+
         ListHolder.Instance.damagables.Remove(this);
+
         PlayerData.Coin += data.loot;
+
         AnimateText(ObjectPooling.Instance.GetPooledObject<AnimatedCanvas>());
-        Destroy(this.gameObject);
+
+        gameObject.SetActive(false);
     }
     private void AnimateText(AnimatedCanvas canvas)
     {
+        //UI managera taþý
         canvas.transform.position = transform.position;
         canvas.gameObject.SetActive(true);
         canvas.SetValue(data.loot);

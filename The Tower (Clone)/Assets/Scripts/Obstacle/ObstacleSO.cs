@@ -10,7 +10,7 @@ public class ObstacleSO : ScriptableObject
     public float damage;
     public float atackSpeed;
 
-    [MinMaxSlider(0, 100)] public Vector2Int lootRange;
+    [MinMaxSlider(1, 51)] public Vector2Int lootRange;
     public float Loot => Random.Range(lootRange.x, lootRange.y);
 
     private Transform target;
@@ -28,6 +28,4 @@ public class ObstacleSO : ScriptableObject
         target = GameObject.FindGameObjectWithTag("Player").transform;
         obstacle.target = target;
     }
-
-
 }
